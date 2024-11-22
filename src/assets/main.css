@@ -1,0 +1,19 @@
+@import "./base.css";
+
+.valorant-title {
+  font-family: "Valorant", sans-serif;
+  font-weight: 100;
+}
+
+.valor-bg {
+  background-image: url("@/assets/images/valor-bg.jpg"); /* Path ke logo */
+  background-size: cover; /* Ukuran logo */
+  background-repeat: no-repeat; /* Tidak mengulang gambar */
+  background-position: center; /* Posisikan di tengah */
+  background-attachment: fixed; /* Tetap saat scroll */
+  min-height: 100vh; /* Pastikan area mencakup seluruh tinggi layar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
