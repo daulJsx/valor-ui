@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--  navbar ketika di halaman agents  -->
-    <nav v-if="$route.name === 'agents'" class="p-4 fixed">
+    <nav v-if="$route.name === 'agents'" class="p-4 fixed z-99">
       <ul class="flex items-center space-x-4">
         <li>
           <router-link to="/" class="hover:underline"
@@ -20,7 +20,7 @@
       </ul>
     </nav>
     <!--  navbar ketika di halaman weapons  -->
-    <nav v-if="$route.name === 'weapons'" class="p-4 fixed z-50">
+    <nav v-if="$route.name === 'weapons'" class="p-4 fixed z-99">
       <ul class="flex items-center space-x-4">
         <li>
           <router-link to="/" class="hover:underline"
