@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--  navbar ketika di halaman agents  -->
-    <nav v-if="$route.name === 'agents'" class="p-4 fixed z-99">
+    <nav v-if="$route.name === 'agents'" class="p-4 fixed">
       <ul class="flex items-center space-x-4">
         <li>
           <router-link to="/" class="hover:underline"
@@ -20,7 +20,7 @@
       </ul>
     </nav>
     <!--  navbar ketika di halaman weapons  -->
-    <nav v-if="$route.name === 'weapons'" class="p-4 fixed z-99">
+    <nav v-if="$route.name === 'weapons'" class="p-4 fixed">
       <ul class="flex items-center space-x-4">
         <li>
           <router-link to="/" class="hover:underline"
@@ -55,7 +55,7 @@ nav {
   backdrop-filter: blur(10px); /* Efek blur */
   -webkit-backdrop-filter: blur(10px); /* Dukungan untuk Safari */
   border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Garis bawah yang halus */
-
+  z-index: 999;
   width: 100%; /* Pastikan navbar mencakup seluruh lebar */
 }
 </style>
