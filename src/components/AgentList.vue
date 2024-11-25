@@ -22,6 +22,13 @@
       </select>
     </div>
 
+    <div
+      v-if="filteredAgents.length === 0"
+      class="text-center text-gray-500 font-bold"
+    >
+      No agents found.
+    </div>
+
     <!-- Daftar Agen yang sudah difilter -->
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"

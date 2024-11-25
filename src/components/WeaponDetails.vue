@@ -137,7 +137,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import { getWeaponDetails } from "@/api/valorant";
 
@@ -148,14 +148,15 @@ export default {
     const weapon = ref(null);
 
     // Fetch weapon details
-    onMounted(async () => {
-      try {
-        const weaponId = route.params.id; // Get weapon ID from the route
-        weapon.value = await getWeaponDetails(weaponId); // Fetch weapon details
-      } catch (error) {
-        console.error("Error fetching weapon data:", error);
-      }
-    });
+    const fetchWeapon = async (id) => {
+      weapon.value = await getWeaponDetails(id);
+    };
+    onMounted(() => fetchWeapon(route.params.id));
+
+    // watch(
+    //   () => route.params.id,
+    //   (newId) => fetchWeapon(newId)
+    // );
 
     return { weapon };
   },

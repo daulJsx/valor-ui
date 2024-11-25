@@ -1,12 +1,12 @@
 <template>
-  <div class="valor-bg relative p-7">
-    <div v-if="agent" class="flex flex-col min-h-screen relative text-white">
+  <div class="valor-bg relative p-4 sm:p-7">
+    <div v-if="agent" class="flex flex-col min-h-screen text-white">
       <!-- Main Container -->
-      <main class="flex flex-1 relative">
+      <main class="relative flex flex-col md:flex-row flex-1">
         <!-- Left Section -->
-        <section class="flex-1 p-8 relative z-10">
+        <section class="flex-1 p-4 sm:p-8 z-10 relative">
           <!-- Header -->
-          <div class="flex justify-between items-center mb-8 relative z-10">
+          <div class="mb-8">
             <div>
               <!-- Back Button -->
               <router-link
@@ -15,17 +15,34 @@
               >
                 Back to Agents
               </router-link>
+              <!-- Background Character Image -->
+              <img
+                :src="agent.background"
+                alt="Agent Background"
+                class="character-bg -z-2"
+              />
+              <img
+                :src="agent.fullPortrait"
+                alt="Agent Background"
+                class="character-image -z-1"
+              />
               <!-- Agent Name -->
-              <h1 class="valorant-title text-6xl font-bold uppercase">
+              <h1
+                class="valorant-title text-4xl sm:text-5xl md:text-6xl font-bold uppercase"
+              >
                 {{ agent.displayName }}
               </h1>
               <!-- Agent Description -->
-              <p class="mt-4 max-w-lg">{{ agent.description }}</p>
+              <p class="mt-4 max-w-lg text-sm sm:text-base">
+                {{ agent.description }}
+              </p>
             </div>
           </div>
 
           <!-- Abilities Grid -->
-          <div class="grid grid-cols-4 gap-4 relative z-10">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 z-10 relative"
+          >
             <div
               v-for="ability in agent.abilities"
               :key="ability.slot"
@@ -36,23 +53,13 @@
                 alt="Ability Icon"
                 class="w-10 h-10 mb-2"
               />
-              <h2 class="text-xl font-bold">{{ ability.displayName }}</h2>
-              <p class="text-sm">{{ ability.description }}</p>
+              <h2 class="text-lg sm:text-xl font-bold">
+                {{ ability.displayName }}
+              </h2>
+              <p class="text-xs sm:text-sm">{{ ability.description }}</p>
             </div>
           </div>
         </section>
-
-        <!-- Background Character Image -->
-        <img
-          :src="agent.background"
-          alt="Agent Background"
-          class="character-bg -z-2"
-        />
-        <img
-          :src="agent.fullPortrait"
-          alt="Agent Background"
-          class="character-image -z-1"
-        />
       </main>
     </div>
 
@@ -113,5 +120,17 @@ body {
 
 .character-bg {
   right: 9rem;
+}
+
+@media (max-width: 768px) {
+  .character-bg {
+    display: none;
+  }
+  .character-image {
+    position: static;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
 }
 </style>
